@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\hak_akses;
 use Illuminate\Http\Request;
 use Hash;
 
@@ -15,7 +14,7 @@ class UserController extends Controller
     }
 
     public function create(){
-        $hak_aksess = hak_akses::All();
+        $users = User::All();
         return view('users/create');
     }
 
@@ -43,7 +42,8 @@ class UserController extends Controller
 
     public function edit(User $user)
     {   
-        return view('users.edit', compact('user'));
+        $hak_aksess = User::All();
+        return view('users.edit', compact('user', 'hak_aksess'));
     }
 
     public function update(Request $request, User $user)

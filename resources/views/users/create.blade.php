@@ -12,19 +12,19 @@
                       <form action="{{ route('users.store') }}" method="POST">
                           @csrf
                           <div class="form-group row mt-3">
-                              <label for="name" class="col-md-4 col-form-label text-right">Name</label>
+                              <label for="nm_pengguna" class="col-md-4 col-form-label text-right">Nama Pengguna</label>
                               <div class="col-md-6">
-                                  <input type="text" id="name" class="form-control" name="name" required autofocus>
-                                  @if ($errors->has('name'))
-                                      <span class="text-danger">{{ $errors->first('name') }}</span>
+                                  <input type="text" id="nm_pengguna" class="form-control" name="nm_pengguna" placeholder="Masukkan Nama Pengguna" required autofocus>
+                                  @if ($errors->has('nm_pengguna'))
+                                      <span class="text-danger">{{ $errors->first('nm_pengguna') }}</span>
                                   @endif
                               </div>
                           </div>
   
                           <div class="form-group row mt-3">
-                              <label for="email_address" class="col-md-4 col-form-label text-right">E-Mail Address</label>
+                              <label for="email" class="col-md-4 col-form-label text-right">E-Mail Address</label>
                               <div class="col-md-6">
-                                  <input type="text" id="email_address" class="form-control" name="email" required autofocus>
+                                  <input type="text" id="email" class="form-control" name="email" placeholder="example@gmail.com" required autofocus>
                                   @if ($errors->has('email'))
                                       <span class="text-danger">{{ $errors->first('email') }}</span>
                                   @endif
@@ -34,24 +34,23 @@
                           <div class="form-group row mt-3">
                               <label for="password" class="col-md-4 col-form-label text-right">Password</label>
                               <div class="col-md-6">
-                                  <input type="password" id="password" class="form-control" name="password" required>
+                                  <input type="password" id="password" class="form-control" name="password" placeholder="Masukkan Password min.8 Karakter" required>
                                   @if ($errors->has('password'))
                                       <span class="text-danger">{{ $errors->first('password') }}</span>
                                   @endif
                               </div>
                           </div>
-  
+
                           <div class="form-group row mt-3">
-                            <label for="role" class="col-md-4 col-form-label text-right">Role</label>
+                            <label for="hak_akses" class="col-md-4 col-form-label text-right">Hak Akses</label>
                             <div class="col-md-6">
-                                <select class="form-select" id="role" name="role" aria-label="role">
-                                    <option value="">Choose</option>
-                                    @foreach($roles as $val)
-                                        <option value="{{$val->guid}}">{{$val->name}}</option>
-                                    @endforeach
+                                <select class="form-select" id="hak_akses" name="hak_akses" aria-label="hak_akses">
+                                    <option hidden disabled="disabled">Choose</option>
+                                    <option value="admin">Administrator</option>
+                                    <option value="anggota">Anggota</option>
                                 </select>
-                                @if ($errors->has('role'))
-                                    <span class="text-danger">{{ $errors->first('role') }}</span>
+                                @if ($errors->has('hak_akses'))
+                                    <span class="text-danger">{{ $errors->first('hak_akses') }}</span>
                                 @endif
                             </div>
                           </div>

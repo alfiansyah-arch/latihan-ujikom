@@ -13,8 +13,8 @@
                 <div class="card-header">{{ __('Table Users') }}</div>
   
                 <div class="card-body">
-                    <a href="{{ route('users.create') }}" class="btn btn-sm btn-secondary">
-                        Tambah User
+                    <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">
+                        <b>Tambah User</b>
                     </a>
                     <table class="table" id="dataTable">
                         <thead>
@@ -44,15 +44,15 @@
                                     }
                                     ?>
                                 <td> 
-                                    <a href="{{ route('users.edit', $row->id) }}" class="btn btn-sm btn-warning">
-                                        Edit
+                                    <a style="color: white;" href="{{ route('users.edit', $row->id) }}" class="btn btn-sm btn-warning">
+                                        <b>Edit</b>
                                     </a>
                                     <form action="{{ route('users.destroy',$row->id) }}" method="POST"
-                                    style="display: inline" onsubmit="return confirm('Do you really want to delete {{ $row->name }}?');">
+                                    style="display: inline;" onsubmit="return confirm('Do you really want to delete {{ $row->name }}?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger"><span class="text-muted">
-                                        Delete
+                                        <b style="color:white;">Delete</b>
                                     </span></button>
                                     </form>
                                 </td>
